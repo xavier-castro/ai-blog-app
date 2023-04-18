@@ -61,8 +61,8 @@ const Navbar = () => {
   };
 
   return (
-    <header className="p-2">
-      <nav className="flex justify-between items-center list-none">
+    <header className="sticky p-2">
+      <nav className=" flex justify-between items-center list-none">
         <SocialLinks />
         <NavigationMenu>
           {links.map((item, index) => (

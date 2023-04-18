@@ -24,7 +24,7 @@ const TrendingCard = ({ className }: TrendingCardProps) => {
       <div className="absolute z-2 bottom-0 left-0 p-3">
         <Badge>Category</Badge>
         <div className=" mt-2">
-          <h3 className="text-foreground text-2xl font-semibold tracking-tight">
+          <h3 className="text-foreground text-2xl font-semibold tracking-tight text-white dark:text-foreground">
             Post Title
           </h3>
         </div>
