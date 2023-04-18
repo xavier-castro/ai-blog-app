@@ -1,4 +1,5 @@
 // MARK: This is where you put the navbar and footer component. This is where you put shared components across the application
+import Footer from "./(shared)/Footer";
 import Navbar from "./(shared)/Navbar";
 import "./globals.css";
 import { Open_Sans } from "next/font/google";
@@ -23,6 +24,7 @@ export default function RootLayout({
       <body className="bg-background text-foreground">
         <Navbar />
         {children}
+        <Footer />
       </body>
     </html>
   );
