@@ -1,5 +1,6 @@
 "use client";
 
+import { ThemeToggle } from "@/components/theme-toggle";
 import { Button } from "@/components/ui/button";
 import {
   NavigationMenu,
@@ -76,6 +77,7 @@ const Navbar = () => {
             </div>
           ))}
         </NavigationMenu>
+        <ThemeToggle />
         <div className="hidden sm:block">
           <Button>Sign In</Button>
         </div>
