@@ -20,8 +20,10 @@ export default function RootLayout({
 }) {
   return (
     <html className={openSans.className} lang="en">
-      <Navbar />
-      <body>{children}</body>
+      <body className="bg-background text-foreground">
+        <Navbar />
+        {children}
+      </body>
     </html>
   );
 }
