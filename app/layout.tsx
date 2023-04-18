@@ -1,10 +1,11 @@
 // MARK: This is where you put the navbar and footer component. This is where you put shared components across the application
 import { ThemeProvider } from "@/components/theme-provider";
+import { ToastProvider } from "@/components/ui/toast";
+import { cn } from "@/lib/utils";
+import { Open_Sans } from "next/font/google";
 import Footer from "./(shared)/Footer";
 import Navbar from "./(shared)/Navbar";
 import "./globals.css";
-import { Open_Sans } from "next/font/google";
-import { cn } from "@/lib/utils";
 
 const openSans = Open_Sans({
   subsets: ["latin"],
@@ -37,6 +38,7 @@ export default function RootLayout({
           <Navbar />
           {children}
           <Footer />
+          <ToastProvider />
         </ThemeProvider>
       </body>
     </html>
