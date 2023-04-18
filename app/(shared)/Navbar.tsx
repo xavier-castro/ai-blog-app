@@ -47,7 +47,7 @@ const Navbar = () => {
         <div className="flex justify-center gap-4">
           {socialLinks.map((item, index) => (
             <div key={index}>
-              <a href={item.href}>
+              <a href={item.href} target="_blank">
                 <Icon icon={item.iconName} fontSize={16} />
               </a>
             </div>
