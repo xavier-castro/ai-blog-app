@@ -1,3 +1,4 @@
+import { Separator } from "@/components/ui/separator";
 import React from "react";
 
 type Props = {};
@@ -5,6 +6,7 @@ type Props = {};
 const Footer = (props: Props) => {
   return (
     <footer className="bg-background text-foreground py-10 px-10">
+      <Separator className="mb-4" />
       <div className="justify-between mx-auto gap-16 sm:flex">
         {/* First Column */}
         <div className="mt-16 basis-1/2 sm:mt-0">
