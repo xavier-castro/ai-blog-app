@@ -1,15 +1,15 @@
 "use client";
 
+import { Button } from "@/components/ui/button";
 import {
   NavigationMenu,
   NavigationMenuItem,
   NavigationMenuLink,
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
+import { Icon } from "@iconify/react";
 import Link from "next/link";
 import React from "react";
-import { Icon } from "@iconify/react";
-import { Button } from "@/components/ui/button";
 
 const links = [
   { href: "/", title: "Home" },
@@ -44,14 +44,16 @@ const Navbar = () => {
 
     return (
       <>
-        <div className="flex justify-center gap-4">
-          {socialLinks.map((item, index) => (
-            <div key={index}>
-              <a href={item.href} target="_blank">
-                <Icon icon={item.iconName} fontSize={16} />
-              </a>
-            </div>
-          ))}
+        <div className="hidden sm:block">
+          <div className="flex justify-center gap-4">
+            {socialLinks.map((item, index) => (
+              <div key={index}>
+                <a href={item.href} target="_blank">
+                  <Icon icon={item.iconName} fontSize={16} />
+                </a>
+              </div>
+            ))}
+          </div>
         </div>
       </>
     );
@@ -74,7 +76,7 @@ const Navbar = () => {
             </div>
           ))}
         </NavigationMenu>
-        <div>
+        <div className="hidden sm:block">
           <Button>Sign In</Button>
         </div>
       </nav>
