@@ -10,6 +10,9 @@ import StarterKit from "@tiptap/starter-kit";
 import { Pencil, X } from "lucide-react";
 import Image from "next/image";
 import React, { useState } from "react";
+import dayjs from "dayjs";
+import relativeTime from "dayjs/plugin/relativeTime";
+dayjs.extend(relativeTime);
 
 type MenuBarProps = {
   editor: Editor | null;
@@ -254,13 +257,23 @@ type Props = {
 };
 
 const Content = ({ post }: Props) => {
+  // IsEditable
   const [isEditable, setIsEditable] = useState<boolean>(false);
 
+  // Title
   const [title, setTitle] = useState<string>(post.title);
   const [titleError, setTitleError] = useState<string>("");
+  const [tempTitle, setTempTitle] = useState<string>(title);
 
+  // Content
   const [content, setContent] = useState<string>(post.content);
   const [contentError, setContentError] = useState<string>("");
+  const [tempContent, setTempContent] = useState<string>(content);
+
+  const handleOnChangeTitle = (e: React.ChangeEvent<HTMLTextAreaElement>) => {
+    if (title) setTitleError("");
+    setTitle(e.target.value);
+  };
 
   const handleOnChangeContent = ({ editor }: any) => {
     // If content inside is empty we are going to make sure there is no error
@@ -285,11 +298,11 @@ const Content = ({ post }: Props) => {
 
   return (
     <div className="prose w-full max-w-full mb-10">
+      {/* CATEGORY AND EDIT */}
       <h5 className="text-foreground">{`Home > ${post.category} > ${post.title}`}</h5>
-
       <div className="flex justify-between items-center">
         <Badge>{post.category}</Badge>
-        <div className="mt-4">
+        <div className="">
           {isEditable ? (
             <div className="flex justify-between gap-3 mb-2">
               <Button
@@ -318,9 +331,7 @@ const Content = ({ post }: Props) => {
             <div>
               <Textarea
                 placeholder="Title"
-                onChange={(e) =>
-                  console.log("Change title Error", e.target.value)
-                }
+                onChange={handleOnChangeTitle}
                 value={title}
               />
             </div>
@@ -330,7 +341,9 @@ const Content = ({ post }: Props) => {
 
           <div className="flex gap-3">
             <h5 className="font-semibold text-xs">By {post.author}</h5>
-            <h6 className="text-foreground text-xs">{post.createdAt}</h6>
+            <h6 className="text-foreground text-xs">
+              {dayjs(post.createdAt).fromNow()}.
+            </h6>
           </div>
         </>
 
