@@ -76,5 +76,5 @@ module.exports = {
       md: "1060px",
     },
   },
-  plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography"), require("@tailwindcss/line-clamp")],
+  plugins: [require("tailwindcss-animate"), require("@tailwindcss/typography")],
 };

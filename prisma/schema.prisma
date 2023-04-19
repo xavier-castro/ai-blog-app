@@ -9,14 +9,13 @@ datasource db {
 }
 
 model Post {
-    id String @id @default(cuid())
-    createdAt DateTime @default(now())
-    updatedAt DateTime @updatedAt
-    title String
-    category String
-    content String @db.Text
-    author String
-    image String
-    snippet String @db.Text
-  }
-
+  id        String   @id @default(cuid())
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  title     String
+  category  String
+  content   String   @db.Text
+  author    String
+  image     String
+  snippet   String   @db.Text
+}

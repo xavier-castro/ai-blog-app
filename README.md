@@ -2,6 +2,10 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
+## Important Links to Complete Project
+
+- [Prisma How to Seed for Next](https://www.prisma.io/docs/guides/migrate/seed-database)
+
 First, run the development server:
 
 ```bash
