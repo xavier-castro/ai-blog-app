@@ -13,10 +13,21 @@ export async function POST(request: Request) {
 
     // OpenAI uses Axios hence this following code:
     const aiResponse: AxiosResponse<CreateChatCompletionResponse, any> =
-      await openai.createCompletion({
+      await openai.createChatCompletion({
         model: "gpt-3.5-turbo",
-        prompt:
-          "I want you to act as a social media influencer. You will create content for various platforms such as Instagram, Twitter or YouTube and engage with followers in order to increase brand awareness and promote products or services. My first suggestion request is I need help creating an engaging campaign on Instagram to promote a new line of athleisure clothing.",
+        messages: [
+          {
+            role: "user",
+            // content: `Create small blog post with html tags based on this title: ${title}`,
+            content: `Create 3 line blog post with html tags based on this title: ${title}`,
+          },
+          {
+            role: "system",
+            content: `${
+              role || "I am a helpful assistant"
+            }. Write with html tags.`,
+          },
+        ],
       });
 
     return NextResponse.json(
