@@ -1,15 +1,13 @@
-import Posts from "./(home)/Posts"
-import Trending from "./(home)/Trending"
+import FeaturedPosts from './(home)/Trending';
 
 export default function Home() {
   return (
     <main className="px-10 leading-7">
-      <div className="mb-5 md:flex gap-10">
+      <div className="gap-10 mb-5 md:flex">
         <div className="">
-          <Trending />
-          <Posts />
+          <FeaturedPosts />
         </div>
       </div>
     </main>
-  )
+  );
 }

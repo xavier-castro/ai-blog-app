@@ -34,7 +34,7 @@ const TrendingCard = ({ className }: TrendingCardProps) => {
   );
 };
 
-const Trending = () => {
+const FeaturedPosts = () => {
   return (
     <section className="pt-3 pb-10">
       <div className="flex items-center gap-3 py-4">
@@ -61,4 +61,4 @@ const Trending = () => {
   );
 };
 
-export default Trending;
+export default FeaturedPosts;
