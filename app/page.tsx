@@ -22,29 +22,6 @@ const getPosts = async () => {
   return formattedPosts;
 };
 
-export const revalidate = 60;
-
-const getPost = async (id: string) => {
-  const post = await prisma.post.findUnique({
-    where: {
-      id: id,
-    },
-  });
-
-  if (!post) {
-    console.log(`Post with id ${id} not found`);
-    return null;
-  }
-
-  const formattedPost = {
-    ...post,
-    createdAt: post?.createdAt?.toISOString(),
-    updatedAt: post?.updatedAt?.toISOString(),
-  };
-
-  return formattedPost;
-};
-
 // MARK: This is the BIGGEST difference between default NextJS and the new NextJS13
 // By turning this function async... we are creating server components now
 export default async function Home() {
