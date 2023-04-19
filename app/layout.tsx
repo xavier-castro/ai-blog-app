@@ -1,5 +1,5 @@
 // MARK: This is where you put the navbar and footer component. This is where you put shared components across the application
-import { ThemeProvider } from "@/components/theme-provider";
+import { ThemeProvider } from "@/components/theme";
 import { ToastProvider } from "@/components/ui/toast";
 import { cn } from "@/lib/utils";
 import { Open_Sans } from "next/font/google";

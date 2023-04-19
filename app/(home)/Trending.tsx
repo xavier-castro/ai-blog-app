@@ -3,10 +3,11 @@ import { Separator } from "@/components/ui/separator";
 import { Post } from "@prisma/client";
 import Image from "next/image";
 import Link from "next/link";
+import { FormattedPost } from "../types";
 
 type TrendingCardProps = {
   className?: string;
-  post: Post;
+  post: FormattedPost;
 };
 
 const TrendingCard = ({ className, post }: TrendingCardProps) => {
@@ -18,8 +19,16 @@ const TrendingCard = ({ className, post }: TrendingCardProps) => {
       <div className="relative z-0 w-full h-full bg-background">
         <Image
           fill
-          src={post.image}
-          alt="post"
+          placeholder="blur"
+          src={post?.image}
+          alt="tech posts"
+          style={{ objectFit: "cover" }}
+          sizes="
+          (max-width: 480px) 100vw,
+          (max-width: 768px) 75vw,
+          (max-width: 1060px) 50vw,
+          33vw
+          "
         />
       </div>
       <div className="absolute top-0 w-full h-full z-1" />
@@ -36,7 +45,7 @@ const TrendingCard = ({ className, post }: TrendingCardProps) => {
 };
 
 type Props = {
-  trendingPosts: Array<Post>;
+  trendingPosts: Array<FormattedPost>;
 };
 
 const FeaturedPosts = ({ trendingPosts }: Props) => {

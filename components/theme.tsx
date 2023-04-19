@@ -1,15 +1,31 @@
-import {
-  Laptop,
-  LucideProps,
-  Moon,
-  SunMedium,
-  Twitter,
-  type Icon as LucideIcon,
-} from "lucide-react";
+'use client';
 
-export type Icon = LucideIcon;
+import { Button } from '@/components/ui/button';
+import { LucideProps, Moon, SunMedium, Twitter } from 'lucide-react';
+import { ThemeProvider as NextThemesProvider, useTheme } from 'next-themes';
+import { ThemeProviderProps } from 'next-themes/dist/types';
 
-export const Icons = {
+export function ThemeToggle() {
+  const { setTheme, theme } = useTheme();
+
+  return (
+    <Button
+      variant="ghost"
+      size="sm"
+      onClick={() => setTheme(theme === 'light' ? 'dark' : 'light')}
+    >
+      <Icons.sun className="transition-all scale-100 rotate-0 dark:-rotate-90 dark:scale-0" />
+      <Icons.moon className="absolute transition-all scale-0 rotate-90 dark:rotate-0 dark:scale-100" />
+      <span className="sr-only">Toggle theme</span>
+    </Button>
+  );
+}
+
+export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
+  return <NextThemesProvider {...props}>{children}</NextThemesProvider>;
+}
+
+const Icons = {
   sun: SunMedium,
   moon: Moon,
   twitter: Twitter,

@@ -1,6 +1,6 @@
 "use client";
 
-import { ThemeToggle } from "@/components/theme-toggle";
+import { ThemeToggle } from "@/components/theme";
 import { Button } from "@/components/ui/button";
 import {
   NavigationMenu,
@@ -9,6 +9,7 @@ import {
   navigationMenuTriggerStyle,
 } from "@/components/ui/navigation-menu";
 import { Icon } from "@iconify/react";
+import { Github, Instagram, Linkedin, Twitter } from "lucide-react";
 import Link from "next/link";
 import React from "react";
 
@@ -23,23 +24,19 @@ const Navbar = () => {
     const socialLinks = [
       {
         href: "https://twitter.com/xavier___castro",
-        title: "Instagram",
-        iconName: "skill-icons:instagram",
+        icon: <Twitter strokeWidth={1} />,
       },
       {
         href: "https://www.instagram.com/xavier___castro/",
-        title: "Twitter",
-        iconName: "logos:twitter",
+        icon: <Instagram strokeWidth={1} />,
       },
       {
         href: "https://www.linkedin.com/in/xavier-castro-9b2a01153/",
-        title: "LinkedIn",
-        iconName: "logos:linkedin-icon",
+        icon: <Linkedin strokeWidth={1} />,
       },
       {
         href: "https://github.com/xavier-castro",
-        title: "Github",
-        iconName: "logos:github-icon",
+        icon: <Github strokeWidth={1} />,
       },
     ];
 
@@ -50,7 +47,7 @@ const Navbar = () => {
             {socialLinks.map((item, index) => (
               <div key={index}>
                 <a href={item.href} target="_blank">
-                  <Icon icon={item.iconName} fontSize={16} />
+                  {item.icon}
                 </a>
               </div>
             ))}
@@ -62,7 +59,7 @@ const Navbar = () => {
 
   return (
     <header className="p-2">
-      <nav className="flex justify-between items-center list-none">
+      <nav className="flex items-center justify-between list-none">
         <SocialLinks />
         <NavigationMenu>
           {links.map((item, index) => (
