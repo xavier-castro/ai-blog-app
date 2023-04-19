@@ -8,7 +8,7 @@ if (process.env.NODE_ENV === "production") {
   if (!(global as any).prisma) {
     (global as any).prisma = new PrismaClient();
   }
-  prismaInit = (global as any).prisma
+  prismaInit = (global as any).prisma;
 }
 
 export const prisma = prismaInit;
