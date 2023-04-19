@@ -1,7 +1,7 @@
-import { Post } from '@prisma/client';
-import FeaturedPosts from './(home)/Trending';
-import { prisma } from './api/client';
-import { FormattedPost } from './types';
+import { Post } from "@prisma/client";
+import FeaturedPosts from "./(home)/Trending";
+import { prisma } from "./api/client";
+import { FormattedPost } from "./types";
 
 const getPosts = async () => {
   // Directly call our database here
@@ -65,11 +65,11 @@ export default async function Home() {
       if (i < 4) {
         trendingPosts.push(post);
       }
-      if (post?.category === 'Tech') {
+      if (post?.category === "Tech") {
         techPosts.push(post);
-      } else if (post?.category === 'Travel') {
+      } else if (post?.category === "Travel") {
         travelPosts.push(post);
-      } else if (post?.category === 'Interior Design') {
+      } else if (post?.category === "Interior Design") {
         otherPosts.push(post);
       }
     });

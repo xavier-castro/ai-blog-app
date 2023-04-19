@@ -1,7 +1,6 @@
-import { prisma } from "@/app/api/client";
-import React from "react";
-import Content from "./Content";
-import { FormattedPost } from "@/app/types";
+import { prisma } from '@/app/api/client';
+import { FormattedPost } from '@/app/types';
+import Content from './Content';
 
 type Props = {
   params: { id: string };
@@ -36,7 +35,7 @@ const Post = async ({ params }: Props) => {
 
   return (
     <main className="px-10 leading-7">
-      <div className="md:flex gap-10 mb-5">
+      <div className="gap-10 mb-5 md:flex">
         <Content post={post} />
       </div>
     </main>

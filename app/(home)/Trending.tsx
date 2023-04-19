@@ -50,7 +50,7 @@ type Props = {
 
 const FeaturedPosts = ({ trendingPosts }: Props) => {
   return (
-    <section className="pt-3 pb-10">
+    <section className="pt-3 pb-4 md:pb-10">
       <div className="flex items-center gap-3 py-4">
         <div className="px-8 py-2 text-sm font-bold bg-background text-foreground">
           TRENDING
@@ -80,8 +80,6 @@ const FeaturedPosts = ({ trendingPosts }: Props) => {
           post={trendingPosts[3]}
         />
       </div>
-
-      <Separator />
     </section>
   );
 };
